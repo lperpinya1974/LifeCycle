@@ -6,7 +6,9 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,11 +20,10 @@ private String txtHora;
         setContentView(R.layout.activity_main);
         notificar("onCreate");
         if (savedInstanceState == null) {
-            Calendar dataActual = Calendar.getInstance();
-            int hora = dataActual.get(Calendar.HOUR_OF_DAY);
-            int minut = dataActual.get(Calendar.MINUTE);
-            int segon = dataActual.get(Calendar.SECOND);
 
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            this.txtHora = sdf.format(new Date());
+        
 
             this.txtHora = "Hora: " + hora + ":" + minut + ":" + segon;
         }
