@@ -91,6 +91,7 @@ private String txtHora;
     {
         Toast.makeText (this, mensaje, Toast.LENGTH_SHORT).show();
         Log.i ("tag", mensaje);
+        //TODO canviar a notificacions
     }
 
 }
