@@ -21,11 +21,11 @@ private String txtHora;
         notificar("onCreate");
         if (savedInstanceState == null) {
 
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
             this.txtHora = sdf.format(new Date());
-        
 
-            this.txtHora = "Hora: " + hora + ":" + minut + ":" + segon;
+
+
         }
 
         else
