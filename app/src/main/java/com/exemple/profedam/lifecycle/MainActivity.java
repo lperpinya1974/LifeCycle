@@ -1,7 +1,10 @@
 package com.exemple.profedam.lifecycle;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +16,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
 private String txtHora;
+private int numNotificacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +96,22 @@ private String txtHora;
         Toast.makeText (this, mensaje, Toast.LENGTH_SHORT).show();
         Log.i ("tag", mensaje);
         //TODO canviar a notificacions
+        android.support.v4.app.NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(MainActivity.this)
+                        .setSmallIcon(android.R.drawable.stat_sys_warning)
+                        .setContentTitle("Mensaje de Alerta")
+                        .setContentText(mensaje)
+                        .setContentInfo(mensaje)
+                        .setTicker("Alerta!");
+ /* Obtener el notificationManager del teléfono */
+
+        NotificationManager mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+/* Decirle al manager que añada mBuilder */
+
+        mNotificationManager.notify(numNotificacion, mBuilder.build());
+        numNotificacion++;
     }
 
 }
